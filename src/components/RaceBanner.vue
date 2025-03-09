@@ -4,7 +4,7 @@
       <img :src="titleImage" alt="Велосипедная гонка" class="banner-image">
       <div class="banner-content">
         <h1>Гонка в Юже 2025</h1>
-        <button @click="$emit('register')"> Зарегистрироваться</button>
+        <router-link to="registration" class="register-button"> Зарегистрироваться </router-link>
       </div>
     </section>
   </div>
@@ -40,22 +40,22 @@ object-fit: cover;
 transform: translate(-50%,-50%);
 }
 
-button {
-  padding: 20px 35px;
-  font-size: 2em;
+
+.register-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2em;
   background-color: #ff4757;
   color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
   transition: background-color 0.3s;
   transition: box-shadow 0.3s;
-
 }
 
-button:hover {
+.register-button:hover {
   background-color: #ff6b81;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 2) ;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5) ;
 }
 
 </style>
