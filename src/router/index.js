@@ -11,6 +11,16 @@ const routes = [
     name: 'registration',
     component: () => import('@/views/RegistrationPage.vue')
   },
+  {
+    path: '/registration-success',
+    name: 'registratione-success',
+    component: () => import('@/views/RegistrationSuccess.vue')
+  },
+  {
+    path:'/dashboard',
+    name:'dashboard',
+    component: () => import('@/views/Dashboard.vue')
+  }
 ]
 
 const router = createRouter({
