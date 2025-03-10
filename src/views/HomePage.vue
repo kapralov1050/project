@@ -5,7 +5,6 @@
         <AboutRace />
         <TimerToStart :targetDate="new Date(2025, 7, 15)" />
       </div>
-      <div> Таймер до старта</div>
     </div>
   </template>
   

@@ -18,10 +18,11 @@
 
         <div class="form-group">
         <label> У тебя есть шлем?</label> 
-        <input type="checkbox" v-model="helmetAv">
+        <input type="checkbox" v-model="formData.helmetAv">
         </div>
 
-        <button type="submit" class="submit-button">Завершить регистрацию</button>
+        <button type="submit" class="submit-button" @click="RegistrationStore.registrUser(formData)" >Завершить регистрацию</button>
+        <div class="spinner"></div> 
     </form>
   </div>
 </template>
@@ -31,20 +32,20 @@
 <script setup>
 import router from '@/router'
 import {ref} from 'vue'
+import { useRegistrationStore } from '@/store/registrationStore'
 
-const helmetAv = ref(false)
+const RegistrationStore = useRegistrationStore()
+
+
+
 
 const formData = ref({
     name: '',
     surname: '',
-    email: ''
+    email: '',
+    helmetAv: false
 })
 
-const handleSubmit = () => {
-    console.log('Форма отправлена:', formData.value, helmetAv.value === true ? 'Есть шлем' : 'Нет шлема')
-    alert('Регистрация пройдена успешно')
-    router.push('/')
-}
 </script>
 
 

@@ -9,13 +9,13 @@
 
 Крутите педали к новым впечатлениям — ваше приключение начинается здесь!</p>
     <div class="race-info">
-        <p>Дата: {{ raceDate }}</p>
-        <p>Место: {{ location }}</p>
-        <p>Дистанция: {{ distance }} км</p>
+        <p>Дата: {{ raceStore.date }}</p>
+        <p>Место: {{ raceStore.location }}</p>
+        <p>Дистанция: {{ raceStore.distance }} км</p>
     </div>
 
     <div class="features">
-        <div v-for="feature in features" :key="index" class="feature-item">
+        <div v-for="(feature, index) in raceStore.feature" :key="index" class="feature-item">
             <img :src="feature.icon" :alt="feature.title"/>
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.description }}</p>
@@ -28,28 +28,10 @@
 
 
 <script setup>
-import {ref} from 'vue'
+import { useRaceStore } from '@/store/raceStore';
 
-const raceDate = ref('15 июля 2025')
-const location = ref('г. Южа')
-const distance = ref(20)
+const raceStore = useRaceStore()
 
-const features = ref([
-    {title: 'Призы',
-     icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXqHoedbsBxo4rclfAGsGh5n-sKBqcH1DjTw&s',
-     description: 'Ценные призы для победителей'
-  },
-  {
-    title: 'Профессиональный хронометраж',
-    icon: 'https://cdn-icons-png.flaticon.com/512/2786/2786746.png',
-    description: 'Точное измерение результатов'
-  },
-  {
-    title: 'Карта трассы',
-    icon: 'https://i.pinimg.com/736x/86/57/e5/8657e5077a7a746124744f119f937141.jpg',
-    description: 'Подробная карта маршрута'
-  }
-])
 </script>
 
 
