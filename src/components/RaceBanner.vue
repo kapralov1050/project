@@ -56,6 +56,12 @@ transform: translate(-50%,-50%);
 .register-button:hover {
   background-color: #ff6b81;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5) ;
+  animation: shake 1s forwards
 }
 
+
+@keyframes shake {
+  0% { transform: translateY(0);}
+  100% {transform: translateY(2px);}
+}
 </style>
