@@ -23,6 +23,10 @@ const feature = ref([
   }
 ])
 
+//Хранилище маршрута
+
+
+
 return {date, location, distance, feature}
 
 })
