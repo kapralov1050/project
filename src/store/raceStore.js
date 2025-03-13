@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
 
 export const useRaceStore = defineStore('store', () => {
 
@@ -23,10 +23,60 @@ const feature = ref([
   }
 ])
 
+const routeCoordinates = ref([
+  [
+    42.012430014960756,
+    56.579706275200664
+  ],
+  [
+    42.020736462798936,
+    56.56983696658065
+  ],
+  [
+    42.0179018541651,
+    56.564907783867284
+  ],
+  [
+    42.023964116453584,
+    56.563504409547534
+  ],
+  [
+    42.02517291074031,
+    56.55715032463712
+  ],
+  [
+    42.03307377704695,
+    56.54704865883906
+  ],
+  [
+    42.04538965324281,
+    56.52808593115043
+  ],
+  [
+    42.04928036602746,
+    56.525939989800634
+  ],
+  [
+    42.04972897862447,
+    56.522473041575495
+  ], // Финиш
+])
+
+const routeGeoJSON = computed(() => ({
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates: routeCoordinates.value
+    }
+  }]
+}))
 //Хранилище маршрута
 
 
 
-return {date, location, distance, feature}
+return {date, location, distance, feature, routeGeoJSON, routeCoordinates}
 
 })

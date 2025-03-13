@@ -61,7 +61,6 @@ onBeforeUnmount(() => {
 .countdown-timer {
   text-align: center;
   padding: 30px;
-  margin: 50px 0;
   background-color: #f5f6fa;
   border-radius: 10px;
 }

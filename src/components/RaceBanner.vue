@@ -22,6 +22,8 @@ const titleImage = ref('https://preview2.photoxpress.ru/preview/photoxpress_ru/n
 
 
 <style scoped>
+
+
 .banner-image {
   width: 100%;
   max-height: 600px;

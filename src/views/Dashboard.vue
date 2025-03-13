@@ -1,4 +1,5 @@
 <template>
+    <AppHeader />
   <div class="container">
     <div class="dashboard">
         <h2>Личный кабинет участника #{{ user?.id }}</h2>
@@ -18,11 +19,9 @@
             <p>Место проведения: {{ raceStore.location }}</p>
         </div>
         </div>
-
-
     </div>
-
   </div>
+  <AppFooter />
 </template>
 
 
@@ -31,6 +30,8 @@
 import {computed} from 'vue';
 import { useRegistrationStore } from '@/store/registrationStore';
 import { useRaceStore } from '@/store/raceStore';
+import AppHeader from '@/components/AppHeader.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 const registrationStore = useRegistrationStore()
 const raceStore = useRaceStore()
@@ -46,6 +47,9 @@ const formattedDate = computed(() => {
 
 
 <style scoped>
+.container {
+    margin: 300px 0;
+}
 .dashboard {
     background: rgb(214, 255, 252);
     padding: 30px;

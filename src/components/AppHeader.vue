@@ -50,7 +50,7 @@
 
 
 
-<script setup>
+<script setup >
 import {ref} from 'vue'
 
 const isMobileMenuOpen = ref(false)
@@ -71,6 +71,8 @@ const toggleMobileMenu = () => {
 
 
 <style scoped>
+
+
 .app-header {
   background: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -89,6 +91,7 @@ const toggleMobileMenu = () => {
 }
   .logo img{
     height: 40px;
+    margin-left: 20px;
   }
   
   .desktop-nav {

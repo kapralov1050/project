@@ -1,7 +1,15 @@
 <template>
-  <div class="map-container">
-    <div ref="mapElement" class="race-map"></div>
+  <AppHeader />
+  <div class="main">
+  <h2>Карта гонки</h2>
+  <p>Описание маршрута: Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quam animi ut similique impedit rem necessitatibus laboriosam reprehenderit facilis, itaque dignissimos, quas alias culpa tempora. Harum placeat tenetur nemo, a rem voluptatem praesentium. Fugiat sequi deleniti consequatur eius odit nobis sapiente vero laudantium, cupiditate eaque distinctio enim unde dolor? Dolorum?</p>
+    <div class="map-area">
+      <div class="map-container">
+        <div ref="mapElement" class="race-map"></div>
+      </div>
+    </div>
   </div>
+  <AppFooter />
 </template>
 
 
@@ -11,6 +19,8 @@ import "leaflet/dist/leaflet.css"
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import L from 'leaflet'
 import { useRaceStore } from "@/store/raceStore"
+import AppHeader from "./AppHeader.vue"
+import AppFooter from "./AppFooter.vue"
 
 const mapElement = ref(null)
 let map = null
@@ -40,11 +50,11 @@ onMounted(() => {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-let marker1 = L.marker([56.58731, 42.01178], {icon: startIcon}).addTo(map).bindPopup('<b>Старт гонки</b><br>Центр города');
+let marker1 = L.marker([56.579706275200664, 42.012430014960756], {icon: startIcon}).addTo(map).bindPopup('<b>Старт гонки</b><br>Центр города');
 
-let marker2 = L.marker([56.52235, 42.04995], {icon: finishIcon}).addTo(map).bindPopup('<b>Финиш гонки</b><br>Южский район');
+let marker2 = L.marker([56.522473041575495, 42.04972897862447], {icon: finishIcon}).addTo(map).bindPopup('<b>Финиш гонки</b><br>Южский район');
 
-
+L.geoJSON(raceStore.routeGeoJSON).addTo(map)
 })
 
 
@@ -62,9 +72,16 @@ onBeforeUnmount(() => {
 
 
 <style scoped>
+.main {
+  margin: 100px 0;
+}
+.map-area{
+  display: flex;
+  justify-content: center;
+}
 .map-container {
-  height: 400px;
-  margin: 20px 0;
+  height: 600px;
+  width: 80%;
 }
 
 .race-map {
